@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treinos da Jack | Planilhas de treino para iniciante, intermediário e avançado</title>
+<meta name="description" content="Escolha seu treino, pague online e receba na hora. Planilhas de treino femininas e masculinas para iniciante, intermediário e avançado.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f0f10; --bg2:#17171a; --card:#1d1d21; --line:#2c2c32;
+    --text:#f4f2ee; --muted:#a8a5a0;
+    --accent:#ff5a36; --accent-2:#ffb199;
+  }
+  body.masc{ --accent:#2f9bff; --accent-2:#a9d4ff; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;transition:background .3s}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  h1,h2,.display{font-family:Anton,Impact,sans-serif;font-weight:400;letter-spacing:.5px;text-transform:uppercase;line-height:1.02}
+  .accent{color:var(--accent);transition:color .3s}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:20;background:rgba(15,15,16,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:Anton,sans-serif;font-size:24px;letter-spacing:1px;text-transform:uppercase}
+  .navlinks{display:flex;gap:26px;font-size:14px;font-weight:600;color:var(--muted)}
+  .navlinks a:hover{color:var(--text)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#fff;font-weight:800;font-size:15px;padding:15px 26px;border-radius:999px;border:0;cursor:pointer;transition:transform .15s,background .3s,box-shadow .2s;text-transform:uppercase;letter-spacing:.5px}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px -10px var(--accent)}
+  .btn.small{padding:10px 18px;font-size:13px}
+  .btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--text)}
+
+  /* hero */
+  .hero{padding:88px 0 70px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;right:-180px;top:-120px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,var(--accent) 0%,transparent 65%);opacity:.22;transition:background .3s}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+  .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:6px 12px;border-radius:999px;margin-bottom:22px;transition:all .3s}
+  .hero h1{font-size:clamp(46px,7.2vw,92px)}
+  .hero p.lead{font-size:19px;color:var(--muted);margin:22px 0 34px;max-width:520px}
+  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .trust{display:flex;gap:26px;margin-top:38px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+  .trust b{display:block;color:var(--text);font-size:15px}
+  .hero-card{background:var(--card);border:1px solid var(--line);border-radius:24px;aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;position:relative;overflow:hidden}
+  .hero-card .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:#5d5b58;font-size:14px;text-align:center;padding:30px;background:repeating-linear-gradient(135deg,#1d1d21 0 14px,#212126 14px 28px)}
+  .hero-card .ph svg{width:46px;height:46px;opacity:.6}
+  .hero-card .badge{position:relative;background:var(--accent);color:#fff;border-radius:14px;padding:14px 16px;font-weight:700;font-size:14px;align-self:flex-start;transition:background .3s}
+
+  section{padding:90px 0}
+  .sec-head{max-width:640px;margin-bottom:48px}
+  .sec-head h2{font-size:clamp(36px,5vw,58px)}
+  .sec-head p{color:var(--muted);font-size:17px;margin-top:14px}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;transition:color .3s}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .step{background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:30px}
+  .step .n{font-family:Anton,sans-serif;font-size:54px;color:var(--accent);line-height:1;transition:color .3s}
+  .step h3{font-size:20px;margin:14px 0 8px}
+  .step p{color:var(--muted);font-size:15px}
+
+  /* plans */
+  #treinos{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .toggle{display:inline-flex;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px;margin-bottom:40px}
+  .toggle button{border:0;background:transparent;color:var(--muted);font:700 15px Inter,sans-serif;padding:13px 30px;border-radius:999px;cursor:pointer;text-transform:uppercase;letter-spacing:.6px;transition:all .25s}
+  .toggle button.on{background:var(--accent);color:#fff}
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:32px 28px;display:flex;flex-direction:column;position:relative;transition:transform .2s,border-color .3s}
+  .plan:hover{transform:translateY(-4px)}
+  .plan.featured{border:2px solid var(--accent)}
+  .plan .pop{position:absolute;top:-13px;left:28px;background:var(--accent);color:#fff;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:6px 12px;border-radius:999px;transition:background .3s}
+  .plan .lvl{font-family:Anton,sans-serif;font-size:34px;text-transform:uppercase}
+  .plan .for{color:var(--muted);font-size:14px;margin-top:4px;min-height:44px}
+  .price{margin:22px 0 4px;display:flex;align-items:baseline;gap:6px}
+  .price .cur{font-size:18px;font-weight:700;color:var(--muted)}
+  .price .val{font-family:Anton,sans-serif;font-size:56px;line-height:1}
+  .inst{font-size:13px;color:var(--muted);margin-bottom:22px}
+  .plan ul{list-style:none;display:grid;gap:11px;margin-bottom:28px;flex:1}
+  .plan li{display:flex;gap:10px;font-size:15px}
+  .plan li::before{content:"";flex:0 0 18px;height:18px;margin-top:3px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/11px no-repeat;transition:background-color .3s}
+  .plan .btn{width:100%}
+  .pay{display:flex;gap:18px;justify-content:center;margin-top:34px;color:var(--muted);font-size:14px;flex-wrap:wrap}
+  .pay span{display:flex;align-items:center;gap:7px}
+  .pay svg{width:18px;height:18px}
+
+  /* testimonials */
+  .testis{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .testi{background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:18px}
+  .testi .stars{color:var(--accent);letter-spacing:3px;transition:color .3s}
+  .testi p{font-size:16px;flex:1}
+  .testi .who{display:flex;align-items:center;gap:12px;font-size:14px}
+  .testi .av{width:42px;height:42px;border-radius:50%;background:var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--muted)}
+  .testi .who small{display:block;color:var(--muted)}
+  .testi.placeholder p{color:#6d6a66;font-style:italic}
+
+  /* about */
+  .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+  .about .photo{aspect-ratio:1;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+  .about .photo .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:#5d5b58;font-size:14px;background:repeating-linear-gradient(135deg,#1d1d21 0 14px,#212126 14px 28px)}
+  .about .photo .ph svg{width:46px;height:46px;opacity:.6}
+  .about p{color:var(--muted);font-size:17px;margin-top:16px}
+  .creds{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .creds span{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600}
+
+  /* faq */
+  .faq{max-width:780px}
+  details{border-bottom:1px solid var(--line);padding:22px 0}
+  summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:20px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--accent);font-size:26px;line-height:1;transition:transform .2s,color .3s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{color:var(--muted);margin-top:12px;font-size:16px}
+
+  /* final cta */
+  .final{text-align:center;background:var(--accent);color:#fff;border-radius:32px;padding:70px 30px;transition:background .3s}
+  .final h2{font-size:clamp(38px,5.5vw,66px)}
+  .final p{font-size:18px;opacity:.9;margin:16px auto 30px;max-width:520px}
+  .final .btn{background:#fff;color:#111}
+
+  footer{padding:46px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  footer a:hover{color:var(--text)}
+  .social{display:flex;gap:18px}
+
+  @media (max-width:900px){
+    .hero .wrap,.about{grid-template-columns:1fr}
+    .hero-card{aspect-ratio:16/11;max-height:340px}
+    .steps,.plans,.testis{grid-template-columns:1fr}
+    .navlinks{display:none}
+    .plan .for{min-height:0}
+    section{padding:70px 0}
+    .hero{padding:56px 0 50px}
+  }
+</style>
+</head>
+<body>
+
+<script>
+/* ==========================================================
+   CONFIGURAÇÃO — É SÓ EDITAR AQUI
+   - preco: valor em reais
+   - link: o link de pagamento da Kiwify / Hotmart / Mercado Pago
+   ========================================================== */
+const CONFIG = {
+  nome: "Treinos da Jack",
+  instagram: "https://www.instagram.com/",      // coloque o Instagram dela
+  emailSuporte: "contato@seudominio.com.br",     // e-mail para dúvidas
+  cref: "CREF 000000-G/UF",                      // registro profissional
+  planos: {
+    feminino: [
+      { nivel:"Iniciante",     para:"Pra quem está começando agora ou voltando depois de um tempo parada.", preco:"49,90", parcelas:"ou 3x no cartão", link:"#", itens:["Treino de 4 semanas","3 a 4 dias por semana","Vídeo de cada exercício","Versão academia e versão em casa"] },
+      { nivel:"Intermediário", para:"Pra quem já treina há alguns meses e quer resultado mais rápido.",     preco:"69,90", parcelas:"ou 3x no cartão", link:"#", destaque:true, itens:["Treino de 8 semanas","4 a 5 dias por semana","Foco em glúteos, pernas e abdômen","Vídeo de cada exercício","Progressão de carga semana a semana"] },
+      { nivel:"Avançado",      para:"Pra quem treina sério e quer levar o corpo pro próximo nível.",          preco:"89,90", parcelas:"ou 3x no cartão", link:"#", itens:["Treino de 12 semanas","5 a 6 dias por semana","Técnicas avançadas de intensidade","Vídeo de cada exercício","Periodização completa"] }
+    ],
+    masculino: [
+      { nivel:"Iniciante",     para:"Pra quem está começando agora ou voltando depois de um tempo parado.",  preco:"49,90", parcelas:"ou 3x no cartão", link:"#", itens:["Treino de 4 semanas","3 a 4 dias por semana","Vídeo de cada exercício","Versão academia e versão em casa"] },
+      { nivel:"Intermediário", para:"Pra quem já treina há alguns meses e quer ganhar massa de verdade.",    preco:"69,90", parcelas:"ou 3x no cartão", link:"#", destaque:true, itens:["Treino de 8 semanas","4 a 5 dias por semana","Divisão por grupos musculares","Vídeo de cada exercício","Progressão de carga semana a semana"] },
+      { nivel:"Avançado",      para:"Pra quem treina sério e quer quebrar o platô.",                          preco:"89,90", parcelas:"ou 3x no cartão", link:"#", itens:["Treino de 12 semanas","5 a 6 dias por semana","Técnicas avançadas de intensidade","Vídeo de cada exercício","Periodização completa"] }
+    ]
+  },
+  /* Depoimentos REAIS de alunos (peça print/autorização). Deixe [] para esconder a seção. */
+  depoimentos: [
+    { texto:"[Cole aqui o depoimento real de um aluno]", nome:"Nome do aluno", detalhe:"Plano Intermediário", exemplo:true },
+    { texto:"[Cole aqui o depoimento real de um aluno]", nome:"Nome do aluno", detalhe:"Plano Iniciante",     exemplo:true },
+    { texto:"[Cole aqui o depoimento real de um aluno]", nome:"Nome do aluno", detalhe:"Plano Avançado",      exemplo:true }
+  ]
+};
+</script>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo" data-nome>Treinos da Jack</a>
+    <div class="navlinks">
+      <a href="#como">Como funciona</a>
+      <a href="#treinos">Treinos</a>
+      <a href="#depoimentos">Resultados</a>
+      <a href="#duvidas">Dúvidas</a>
+    </div>
+    <a href="#treinos" class="btn small">Quero meu treino</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="tag">Treino online · Feminino e masculino</span>
+      <h1>Seu treino pronto.<br><span class="accent">No seu nível.</span></h1>
+      <p class="lead">Escolha seu plano, pague online e receba o treino completo na hora, com vídeo de cada exercício. Sem enrolação e sem precisar esperar resposta de ninguém.</p>
+      <div class="ctas">
+        <a href="#treinos" class="btn">Escolher meu treino →</a>
+        <a href="#como" class="btn ghost">Como funciona</a>
+      </div>
+      <div class="trust">
+        <div><b>Acesso imediato</b>logo após o pagamento</div>
+        <div><b>Pix ou cartão</b>pagamento seguro</div>
+        <div><b>7 dias</b>de garantia</div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="ph">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-9 8"/></svg>
+        Foto dela treinando<br>(troque esta imagem)
+      </div>
+      <div class="badge">🔥 Treinos feitos por profissional com CREF</div>
+    </div>
+  </div>
+</header>
+
+<section id="como">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Como funciona</div>
+      <h2>Três passos e<br>você já tá treinando</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>Escolha seu treino</h3><p>Selecione feminino ou masculino e o seu nível: iniciante, intermediário ou avançado.</p></div>
+      <div class="step"><div class="n">02</div><h3>Pague online</h3><p>Pix, cartão de crédito ou boleto, numa página de pagamento segura.</p></div>
+      <div class="step"><div class="n">03</div><h3>Receba na hora</h3><p>O acesso ao treino chega no seu e-mail assim que o pagamento é aprovado.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="treinos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Planos de treino</div>
+      <h2>Escolha o seu</h2>
+      <p>Não sabe seu nível? Se você treina há menos de 6 meses, comece pelo Iniciante.</p>
+    </div>
+    <div class="toggle" role="tablist">
+      <button class="on" data-g="feminino">Feminino</button>
+      <button data-g="masculino">Masculino</button>
+    </div>
+    <div class="plans" id="plans"></div>
+    <div class="pay">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>Pagamento 100% seguro</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Pix com liberação imediata</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Cartão de crédito</span>
+    </div>
+  </div>
+</section>
+
+<section id="depoimentos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Resultados</div>
+      <h2>Quem treina, aprova</h2>
+    </div>
+    <div class="testis" id="testis"></div>
+  </div>
+</section>
+
+<section id="sobre" style="padding-top:20px">
+  <div class="wrap about">
+    <div class="photo"><div class="ph">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      Foto de perfil dela
+    </div></div>
+    <div>
+      <div class="kicker">Quem monta seu treino</div>
+      <h2 style="font-size:clamp(36px,5vw,58px)">Prazer, <span class="accent">Jack</span></h2>
+      <p>[Escreva aqui um parágrafo curto sobre ela: há quanto tempo trabalha com treino, a formação e por que decidiu criar os treinos online.]</p>
+      <p>Cada plano foi montado pensando em quem vai treinar sozinho, com exercícios explicados em vídeo e uma progressão clara semana a semana.</p>
+      <div class="creds"><span data-cref>CREF 000000-G/UF</span><span>Educação Física</span><span>+ de X alunos</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="duvidas" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Dúvidas</div>
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>Como eu recebo o treino?</summary><p>Assim que o pagamento é aprovado, você recebe no seu e-mail o acesso ao treino completo. No Pix é na hora; no cartão, normalmente em poucos minutos; no boleto, em até 3 dias úteis.</p></details>
+      <details><summary>Qual nível eu escolho?</summary><p>Iniciante: treina há menos de 6 meses ou está voltando. Intermediário: treina com frequência há 6 meses a 2 anos. Avançado: treina há mais de 2 anos e já domina os exercícios básicos.</p></details>
+      <details><summary>Preciso de academia?</summary><p>O plano Iniciante tem versão para academia e para casa. Os planos Intermediário e Avançado foram feitos para academia.</p></details>
+      <details><summary>O treino inclui dieta?</summary><p>Não. Os planos são apenas de treino. Para alimentação, procure um nutricionista.</p></details>
+      <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia. Se não gostar, é só pedir o reembolso pela própria plataforma de pagamento, sem precisar justificar.</p></details>
+      <details><summary>Posso parcelar?</summary><p>Sim, no cartão de crédito você pode parcelar. As opções aparecem na página de pagamento.</p></details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:10px">
+  <div class="wrap">
+    <div class="final">
+      <h2>Bora começar hoje?</h2>
+      <p>Escolha seu treino agora e já faça o primeiro treino ainda hoje.</p>
+      <a href="#treinos" class="btn">Escolher meu treino →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="ano"></span> <span data-nome>Treinos da Jack</span> · <span data-cref>CREF</span></div>
+    <div class="social">
+      <a id="ig" href="#" target="_blank" rel="noopener">Instagram</a>
+      <a id="mail" href="#">Suporte por e-mail</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const $ = s => document.querySelector(s);
+  document.querySelectorAll('[data-nome]').forEach(e => e.textContent = CONFIG.nome);
+  document.querySelectorAll('[data-cref]').forEach(e => e.textContent = CONFIG.cref);
+  $('#ano').textContent = new Date().getFullYear();
+  $('#ig').href = CONFIG.instagram;
+  $('#mail').href = 'mailto:' + CONFIG.emailSuporte;
+
+  function renderPlans(g){
+    $('#plans').innerHTML = CONFIG.planos[g].map(p => `
+      <div class="plan ${p.destaque ? 'featured' : ''}">
+        ${p.destaque ? '<span class="pop">Mais escolhido</span>' : ''}
+        <div class="lvl">${p.nivel}</div>
+        <div class="for">${p.para}</div>
+        <div class="price"><span class="cur">R$</span><span class="val">${p.preco}</span></div>
+        <div class="inst">${p.parcelas}</div>
+        <ul>${p.itens.map(i => `<li>${i}</li>`).join('')}</ul>
+        <a class="btn" href="${p.link}" target="_blank" rel="noopener">Comprar ${p.nivel} →</a>
+      </div>`).join('');
+  }
+  document.querySelectorAll('.toggle button').forEach(b => b.onclick = () => {
+    document.querySelectorAll('.toggle button').forEach(x => x.classList.toggle('on', x === b));
+    document.body.classList.toggle('masc', b.dataset.g === 'masculino');
+    renderPlans(b.dataset.g);
+  });
+  renderPlans('feminino');
+
+  if (!CONFIG.depoimentos.length) { $('#depoimentos').style.display = 'none'; }
+  $('#testis').innerHTML = CONFIG.depoimentos.map(d => `
+    <div class="testi ${d.exemplo ? 'placeholder' : ''}">
+      <div class="stars">★★★★★</div>
+      <p>${d.texto}</p>
+      <div class="who"><div class="av">${d.nome.charAt(0)}</div><div>${d.nome}<small>${d.detalhe}</small></div></div>
+    </div>`).join('');
+</script>
+</body>
+</html>
